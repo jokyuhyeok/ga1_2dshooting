@@ -1,0 +1,56 @@
+# =========================
+# Unity Cache & Build Files
+# =========================
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Aa]ssets/AssetStoreTools*
+
+# Asset meta data should only be ignored when the asset itself is ignored
+!/[Aa]ssets/**/*.meta
+
+# =========================
+# Rider & IDE Settings
+# =========================
+.idea/
+.idea
+.idea/**
+*.sln
+*.csproj
+*.unityproj
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# =========================
+# OS & Public Repo Specifics
+# =========================
+# Mac OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Android Build
+*.apk
+*.aab
+*.keystore
