@@ -20,6 +20,12 @@ public class PlayerFire : MonoBehaviour
     
     // 자동 공격 모드
     private bool isAuto = false;
+    
+    
+    private void Start()
+    {
+        Current_time = CoolDown_time;
+    }
         
     private void Update()
     {
