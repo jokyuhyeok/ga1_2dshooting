@@ -32,13 +32,14 @@ public class PlayerMove : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x, -5);
         }
+        // 2. 좌우 이동에 있어 한쪽으로 쭉 이동하면 반대쪽에서 나오게 한다.
         if (transform.position.x > 2.5f)
         {
-            transform.position = new Vector2(2.5f, transform.position.y);
+            transform.position = new Vector2(-2.5f, transform.position.y);
         }
         if (transform.position.x < -2.5f)
         {
-            transform.position = new Vector2(-2.5f, transform.position.y);
+            transform.position = new Vector2(2.5f, transform.position.y);
         }
 
     }
