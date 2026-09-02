@@ -42,6 +42,21 @@ public class PlayerMove : MonoBehaviour
             transform.position = new Vector2(2.5f, transform.position.y);
         }
 
+        // 3. 키보드 E : 스피드 UP!, 키보드 Q : 스피드 Down!
+        if (Input.GetKey(KeyCode.E))
+        {
+            Speed += Speed_ChangeAmount;
+        }
+
+        if (Input.GetKey(KeyCode.Q))
+        {
+            Speed -=  Speed_ChangeAmount;
+            if (Speed < 0)  // Speed가 0이면 더 내려가지 않는다.
+            {
+                Speed = 0;
+            }
+        }
+
     }
 }
         // 게임에는 벡터라는 타입이 있다. 벡터는 (크기와 방향을 의미한다)
