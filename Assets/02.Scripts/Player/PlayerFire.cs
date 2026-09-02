@@ -5,10 +5,14 @@ public class PlayerFire : MonoBehaviour
     // 목표 : space bar를 누를때마다 총알을 생성해서 발사하고 싶다.
     // 필요속성 : 총알 프리팹
     public GameObject BulletPrefab;
+    public GameObject Sub_BulletPrefab;
     
     // 필요속성 2: 생성위치(총구)
+    // FirePoint_Left의 Transform을 가져오는 것이다. 네이밍 시 FirePoint_Left_Transform으로 함이 바람직
     public Transform FirePoint_Left;
     public Transform FirePoint_Right;
+    public Transform Sub_FirePoint_Left;
+    public Transform Sub_FirePoint_Right;
     
     // 쿨타임 변수
     public float CoolDown_time = 5.0f;
@@ -49,7 +53,13 @@ public class PlayerFire : MonoBehaviour
             
             GameObject bullet2 = Instantiate(BulletPrefab);
             bullet2.transform.position = FirePoint_Right.position;
+            // [정리과제 8] 보조 총알 양쪽 발사하기
+            GameObject sub_bullet1 = Instantiate(Sub_BulletPrefab);
+            sub_bullet1.transform.position = Sub_FirePoint_Left.position;
             
+            GameObject sub_bullet2 = Instantiate(Sub_BulletPrefab);
+            sub_bullet2.transform.position = Sub_FirePoint_Right.position;
+
         }
     }
 }
