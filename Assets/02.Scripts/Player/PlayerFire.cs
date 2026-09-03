@@ -32,7 +32,7 @@ public class PlayerFire : MonoBehaviour
         // [정리과제 7] '숫자 1' 버튼 누르면 자동모드 시작 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            isAuto = !isAuto;
+            _isAuto = !_isAuto;
         }
 
         // [정리과제 6] 총알 발사에 있어 쿨타임 적용
@@ -41,7 +41,7 @@ public class PlayerFire : MonoBehaviour
             Current_time -= Time.deltaTime;
         }
 
-        if ((isAuto || Input.GetKeyDown(KeyCode.Space)) && Current_time <= 0.0f)
+        if ((_isAuto || Input.GetKeyDown(KeyCode.Space)) && Current_time <= 0.0f)
         {
             Fire();
             Current_time = CoolDown_time;
@@ -51,7 +51,7 @@ public class PlayerFire : MonoBehaviour
     private void Fire()
     {
         // 1. 스페이스바를 누르면
-        if (Input.GetKeyDown(KeyCode.Space) || isAuto)
+        if (Input.GetKeyDown(KeyCode.Space) || _isAuto)
         {
             // 2. 총알 프리팹을 생성한다.
             // Instantiate는 프리팹을 복사해서 게임 오브젝트를 만들고 씬에 넣어주는 기능
