@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7844274076284071930}
   - component: {fileID: 1779422294703399664}
-  - component: {fileID: 4200257725173784809}
   - component: {fileID: 6372211117105511723}
   - component: {fileID: -5658367218556383753}
   m_Layer: 8
@@ -94,20 +93,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &4200257725173784809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2504843846263438926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12fa734c40cfa1b4f9c4be6238075bbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyMove
-  Health: 100
-  MoveSpeed: 5
 --- !u!61 &6372211117105511723
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -2,12 +2,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float Health = 100;
-    public float MoveSpeed;
+    public float Health = 100f;
+    public float MoveSpeed = 5f;
 
-    private void Update()
+    protected virtual void Update()
     {
-        Vector2 direction = Vector2.down;
-        transform.Translate(direction * MoveSpeed * Time.deltaTime);
     }
 }
