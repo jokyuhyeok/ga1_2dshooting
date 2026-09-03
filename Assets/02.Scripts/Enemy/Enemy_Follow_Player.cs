@@ -18,7 +18,7 @@ public class Enemy_Follow_Player : Enemy
         if (_playerTransform != null)
         {
             Vector2 direction = _playerTransform.position - transform.position;
-            transform.Translate(direction * MoveSpeed * Time.deltaTime);
+            transform.Translate(direction * _moveSpeed * Time.deltaTime);
         }
     }
 }

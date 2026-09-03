@@ -20,6 +20,10 @@ public class Enemy_Straight_To_Player : Enemy
 
     protected override void Update()
     {
-        transform.Translate(_moveDirection * MoveSpeed * Time.deltaTime);
+        transform.Translate(_moveDirection * _moveSpeed * Time.deltaTime);
     }
 }
+
+// 이동공식
+// 1. 방향을 구한다.
+// 2. 방향과 속도에 맞게 이동한다.
