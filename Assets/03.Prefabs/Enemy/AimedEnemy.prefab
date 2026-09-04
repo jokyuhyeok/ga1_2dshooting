@@ -181,4 +181,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Straight_To_Player
   _health: 100
   _moveSpeed: 5
-  _enemyDamage: 30
+  _enemyDamage: 10

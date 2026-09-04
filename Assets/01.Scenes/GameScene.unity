@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: _enemyPrefab
       value: 
       objectReference: {fileID: 4263216111081130802, guid: 8d8273cf2e85dbf4987a53a14159a359, type: 3}
+    - target: {fileID: 8534106383911002503, guid: 47852cfd18a5f4c44a0bd76d81e2d48d, type: 3}
+      propertyPath: _enemyPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8676883271621251650, guid: 47852cfd18a5f4c44a0bd76d81e2d48d, type: 3}
       propertyPath: m_Name
       value: EnemySpawner (1)
@@ -369,6 +373,22 @@ PrefabInstance:
       propertyPath: _enemyPrefab
       value: 
       objectReference: {fileID: 5225012559797727491, guid: 98e7b3388ffceda4abd9f967f3429a0f, type: 3}
+    - target: {fileID: 8534106383911002503, guid: 47852cfd18a5f4c44a0bd76d81e2d48d, type: 3}
+      propertyPath: _enemyPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8534106383911002503, guid: 47852cfd18a5f4c44a0bd76d81e2d48d, type: 3}
+      propertyPath: '_enemyPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7275419626872465718, guid: 16c92eb2ed7338047974df04b6394770, type: 3}
+    - target: {fileID: 8534106383911002503, guid: 47852cfd18a5f4c44a0bd76d81e2d48d, type: 3}
+      propertyPath: '_enemyPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 5225012559797727491, guid: 98e7b3388ffceda4abd9f967f3429a0f, type: 3}
+    - target: {fileID: 8534106383911002503, guid: 47852cfd18a5f4c44a0bd76d81e2d48d, type: 3}
+      propertyPath: '_enemyPrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 4263216111081130802, guid: 8d8273cf2e85dbf4987a53a14159a359, type: 3}
     - target: {fileID: 8676883271621251650, guid: 47852cfd18a5f4c44a0bd76d81e2d48d, type: 3}
       propertyPath: m_Name
       value: EnemySpawner (2)
@@ -567,6 +587,7 @@ GameObject:
   - component: {fileID: 1670435479}
   - component: {fileID: 1670435478}
   - component: {fileID: 1670435481}
+  - component: {fileID: 1670435484}
   - component: {fileID: 1670435483}
   - component: {fileID: 1670435482}
   m_Layer: 0
@@ -768,6 +789,19 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 1
+--- !u!114 &1670435484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670435477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d53d018d9c231547b35cf99df57d4fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  _health: 100
 --- !u!1 &2055554973
 GameObject:
   m_ObjectHideFlags: 0

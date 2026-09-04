@@ -7,7 +7,7 @@ public abstract class Enemy : MonoBehaviour
     // 유니티가 수정할 수 있는 필드 - SerializeField
     [SerializeField] private float _health = 100f;
     [SerializeField] protected float _moveSpeed = 5f;
-    [SerializeField] private float _enemyDamage = 30f;
+    [SerializeField] protected float _enemyDamage = 30f;
 
     protected virtual void Update()
     {
@@ -20,13 +20,11 @@ public abstract class Enemy : MonoBehaviour
     // 플레이어에 닿은 적은 그대로 사라진다.
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-                playerHealth.TakeDamage(_enemyDamage);
-            Destroy(gameObject);
-        }
+        if (!other.CompareTag("Player")) return;
+
+        Player player = other.GetComponent<Player>();
+        player.TakeDamage(_enemyDamage);
+        Destroy(gameObject);
     }
 
     public void TakeDamage(float damage)
