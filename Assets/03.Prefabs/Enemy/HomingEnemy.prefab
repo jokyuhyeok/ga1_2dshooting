@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1432534056355021522}
   - component: {fileID: 4263216111081130802}
   m_Layer: 8
-  m_Name: Enemy_Follow_Player
+  m_Name: HomingEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,4 +180,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Follow_Player
   _health: 100
-  _moveSpeed: 1
+  _moveSpeed: 5

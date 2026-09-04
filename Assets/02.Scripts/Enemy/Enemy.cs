@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
     // privvate로 원천 차단을 하자. 
     // 유니티가 수정할 수 있는 필드 - SerializeField
@@ -9,7 +9,10 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Update()
     {
+        Move();
     }
+
+    protected abstract void Move();
 
     public void TakeDamage(float damage)
     {

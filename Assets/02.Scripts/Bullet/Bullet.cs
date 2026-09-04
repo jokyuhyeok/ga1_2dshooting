@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
         Destroy(this.gameObject);
 
         // 충돌한 친구가 Enemy일 때만 죽여뿌자.
-        if (other.gameObject.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             // GetComponent<타입>() -> 게임 오브젝트가 가지고 있는 컴포넌트를 참조
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
