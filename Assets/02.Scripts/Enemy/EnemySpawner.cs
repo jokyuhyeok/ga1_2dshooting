@@ -19,6 +19,8 @@ public class EnemySpawner : MonoBehaviour
         {
             _timer = 0f;
 
+            _spawnInternal = UnityEngine.Random.Range(1f, 3f); // float : 1~3
+            int randomInt = Random.Range(1, 3); // int : 1~2
             Spawn();
         }
     }
