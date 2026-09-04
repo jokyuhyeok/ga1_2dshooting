@@ -63,13 +63,14 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         with:
           gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
+          model: gemini-3-flash-preview
           prompt: |
             현재 저장소의 최신 커밋을 코드 리뷰하세요.
 
             반드시 먼저 commit.diff 파일을 읽고,
             Assets/02.Scripts 폴더에 포함된 C# 변경사항을 검토하세요.
 
-            저장소의 GEMINI.md와 GEMINI.md에서 가져온
+            저장소의 GEMINI.md에 정의된
             코드 리뷰 기준을 반드시 적용하세요.
 
             변경된 코드의 버그, 예외 가능성, Unity 생명주기 문제,
