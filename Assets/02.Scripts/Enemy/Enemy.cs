@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public abstract class Enemy : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public abstract class Enemy : MonoBehaviour
 
         Player player = other.GetComponent<Player>();
         player.TakeDamage(_enemyDamage);
+        if (player == null)
+        {
+            Debug.Log("플레이어가 null입니다.");
+        }
+
         Destroy(gameObject);
     }
 
