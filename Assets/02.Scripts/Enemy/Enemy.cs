@@ -27,6 +27,7 @@ public abstract class Enemy : MonoBehaviour
         if (player == null)
         {
             Debug.Log("플레이어가 null입니다.");
+            return;
         }
 
         player.TakeDamage(_enemyDamage);

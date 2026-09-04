@@ -1636,6 +1636,22 @@ PrefabInstance:
       propertyPath: _enemyPrefab
       value: 
       objectReference: {fileID: 7275419626872465718, guid: 16c92eb2ed7338047974df04b6394770, type: 3}
+    - target: {fileID: 8534106383911002503, guid: 47852cfd18a5f4c44a0bd76d81e2d48d, type: 3}
+      propertyPath: _enemyPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8534106383911002503, guid: 47852cfd18a5f4c44a0bd76d81e2d48d, type: 3}
+      propertyPath: '_enemyPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7275419626872465718, guid: 16c92eb2ed7338047974df04b6394770, type: 3}
+    - target: {fileID: 8534106383911002503, guid: 47852cfd18a5f4c44a0bd76d81e2d48d, type: 3}
+      propertyPath: '_enemyPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 5225012559797727491, guid: 98e7b3388ffceda4abd9f967f3429a0f, type: 3}
+    - target: {fileID: 8534106383911002503, guid: 47852cfd18a5f4c44a0bd76d81e2d48d, type: 3}
+      propertyPath: '_enemyPrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 4263216111081130802, guid: 8d8273cf2e85dbf4987a53a14159a359, type: 3}
     - target: {fileID: 8676883271621251650, guid: 47852cfd18a5f4c44a0bd76d81e2d48d, type: 3}
       propertyPath: m_Name
       value: EnemySpawner
