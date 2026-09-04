@@ -132,6 +132,18 @@ player.TakeDamage(damage);
 4. 이벤트, 인터페이스, 컴포지션 중 어떤 방법이 적절한가?
 5. 변경 후 클래스 간 관계가 어떻게 달라지는가?
 
+컴포넌트 및 오브젝트 참조 캐싱: GetComponent, Find, Camera.main 등의 무거운 탐색 함수를 Update()나 반복문 안에서 호출하고 있는지 확인한다. 모바일 환경의 프레임 저하를 막기 위해 반드시 Awake()나 Start()에서 멤버 변수에 캐싱하여 재사용하도록 제안한다.
+
+해시(Hash) 값 캐싱: Animator.SetTrigger("Attack")이나 Material.SetFloat("Color")처럼 문자열을 직접 넘기지 않고, Animator.StringToHash()나 Shader.PropertyToID()를 이용해 정수형(int) 해시값으로 미리 캐싱하여 사용하고 있는지 확인한다.
+
+코루틴 대기 객체 캐싱: yield return new WaitForSeconds(1f);를 매번 new로 생성하면 가비지(Garbage)가 불필요하게 누적되어 모바일 기기에 부하를 줄 수 있다. 자주 사용하는 대기 시간은 미리 객체로 캐싱해 두고 재사용하는 구조인지 확인한다.
+
+무거운 연산 결과 캐싱: 매 프레임 결과가 변하지 않는 복잡한 연산(예: 고정된 위치 간의 거리 계산, 반복적인 string 결합)이 있다면, 결과를 변수에 저장해 두고 필요할 때만 갱신하는지 검토한다.
+
+데이터 및 리소스 캐싱: 한 번 읽어온 로컬 데이터(JSON, ScriptableObject 등)나 에셋을 반복해서 로드하지 않고, 메모리에 적절히 캐싱하여 사용하고 있는지 확인한다.
+
+컬렉션 할당 캐싱: Physics.OverlapSphere나 GetComponents 등 배열을 반환하는 함수 대신, Physics.OverlapSphereNonAlloc이나 미리 할당해 둔 List<T>를 활용하여 가비지 발생을 막고 있는지 확인한다.
+
 ## SOLID 원칙
 
 SOLID 원칙을 기준으로 설계를 검토하되, 모든 코드에 인터페이스와 디자인 패턴을 강제하지 않는다.
