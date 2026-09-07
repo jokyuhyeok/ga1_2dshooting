@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4353931246548754761}
   - component: {fileID: 1432534056355021522}
   - component: {fileID: 4263216111081130802}
+  - component: {fileID: 8830471710264528531}
   m_Layer: 8
   m_Name: HomingEnemy
   m_TagString: Enemy
@@ -84,8 +85,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -8421458170528590454, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -132,7 +133,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.3333334, y: 1.125}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -179,10 +180,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33cd980e7996679499b130c9ea1c7e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Follow_Player
-  _health: 100
+  _health: 300
   _moveSpeed: 5
   _enemyDamage: 5
   _itemPrefabs:
   - {fileID: 4928197168863796118, guid: d8af477d2068dcf479b6fc446fb0c269, type: 3}
   - {fileID: 8001292539636800898, guid: 05ce764f91a922c469fe0d34fc04bdce, type: 3}
   - {fileID: 3816078516784502728, guid: cda02f69a7f1bc34b85040faa76a2a88, type: 3}
+--- !u!95 &8830471710264528531
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5725152363360151996}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7f5693e0ce3539b44b9d64f62c4e20ac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
