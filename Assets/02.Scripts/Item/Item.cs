@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public string Type;
+    public ItemType Type;
     public float Value;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -18,21 +18,21 @@ public class Item : MonoBehaviour
 
         switch (Type)
         {
-            case "heal":
+            case ItemType.Heal:
                 {
                     player.TakeDamage((int)(Value * -1));
                     //Debug.Log($"플레이어 체력: {player}");
                     break;
                 }
 
-            case "moveSpeedUp":
+            case ItemType.MoveSeepUp:
                 {
                     player.GetComponent<PlayerMove>().Speed += Value;
                     Debug.Log($"플레이어 이속: {player.GetComponent<PlayerMove>().Speed}");
                     break;
                 }
 
-            case "fireRateUp":
+            case ItemType.FireRateUp:
                 {
                     player.GetComponent<PlayerFire>().CoolDown_time -= Value;
                     Debug.Log($"플레이어 공속: {player.GetComponent<PlayerFire>().CoolDown_time}");
