@@ -2,16 +2,52 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float _health = 100f;
+    [SerializeField] private int _health = 100;
 
-    public void TakeDamage(float _enemydamage)
+    public void TakeDamage(int damage)
     {
-        _health -= _enemydamage;
-        Debug.Log("으억.. 데미지를 입었다!");
+        _health -= damage;
         if (_health <= 0)
         {
             Destroy(gameObject);
-            Debug.Log("플레이어 사망!");
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.CompareTag("Item")) return;
+
+        Item item = other.GetComponent<Item>();
+        if (item == null)
+        {
+            Debug.LogWarning("아이템 태그 오브젝트에 아이템 컴포넌트가 없습니다.");
+            return;
+        }
+
+        switch (item.Type)
+        {
+            case "heal":
+                {
+                    _health += (int)item.Value;
+                    Debug.Log($"플레이어 체력: {_health}");
+                    break;
+                }
+
+            case "moveSpeedUp":
+                {
+                    GetComponent<PlayerMove>().Speed += item.Value;
+                    Debug.Log($"플레이어 이속: {GetComponent<PlayerMove>().Speed}");
+                    break;
+                }
+
+            case "fireRateUp":
+                {
+                    GetComponent<PlayerFire>().CoolDown_time -= item.Value;
+                    Debug.Log($"플레이어 공속: {GetComponent<PlayerFire>().CoolDown_time}");
+                    break;
+                }
+        }
+
+        Destroy(other.gameObject);
     }
 }
