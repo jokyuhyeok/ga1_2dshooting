@@ -28,6 +28,10 @@ public class Item : MonoBehaviour
             Debug.LogWarning("플레이어를 찾을 수 없습니다.");
             return;
         }
+
+        Vector2 direction = player.transform.position - transform.position;
+        direction.Normalize();
+        transform.Translate(direction * MoveSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
