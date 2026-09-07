@@ -10,6 +10,19 @@ public class Item : MonoBehaviour
     private float _waitTimer = 0f;
     private const float MoveSpeed = 5f;
 
+    private Player _player = null;
+
+    private void Start()
+    {
+        _player = GameObject.FindWithTag("Player").GetComponent<Player>();
+
+        if (_player == null)
+        {
+            Debug.LogWarning("플레이어를 찾을 수 없습니다.");
+            return;
+        }
+    }
+
     private void Update()
     {
         _waitTimer += Time.deltaTime;
@@ -21,15 +34,9 @@ public class Item : MonoBehaviour
 
     private void FollowPlayer()
     {
-        Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        if (_player == null) return;
 
-        if (player == null)
-        {
-            Debug.LogWarning("플레이어를 찾을 수 없습니다.");
-            return;
-        }
-
-        Vector2 direction = player.transform.position - transform.position;
+        Vector2 direction = _player.transform.position - transform.position;
         direction.Normalize();
         transform.Translate(direction * MoveSpeed * Time.deltaTime);
     }
@@ -47,6 +54,7 @@ public class Item : MonoBehaviour
 
         switch (_type)
         {
+            // 심화 과제 1. 퍼사드 패턴 (패턴: 객체지향에서 자주 일어나는 설계 문제를 잘 풀어내도록 경험에 의해 정리해 놓은 공식같은거)
             case ItemType.Heal:
                 {
                     player.Heal((int)(_value));
