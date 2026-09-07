@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerFire : MonoBehaviour
@@ -15,6 +16,7 @@ public class PlayerFire : MonoBehaviour
     public Transform Sub_FirePoint_Right;
 
     // 쿨타임 변수
+    private const float MinCoolTime = 0.06f;
     public float CoolDown_time = 5.0f;
     public float Current_time = 0.0f;
 
@@ -67,5 +69,17 @@ public class PlayerFire : MonoBehaviour
             GameObject sub_bullet2 = Instantiate(Sub_BulletPrefab);
             sub_bullet2.transform.position = Sub_FirePoint_Right.position;
         }
+    }
+
+    public void FireRateUp(float upValue)
+    {
+        if (upValue < 0)
+        {
+            Debug.LogWarning("공격 속도 증가량은 0보다 작을 수 없습니다.");
+            return;
+        }
+
+        // 최고 속도 제한
+        CoolDown_time = Math.Max(CoolDown_time - upValue, MinCoolTime);
     }
 }

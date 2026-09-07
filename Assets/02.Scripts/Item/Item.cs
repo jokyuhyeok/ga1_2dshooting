@@ -26,15 +26,16 @@ public class Item : MonoBehaviour
 
             case ItemType.MoveSpeedUp:
                 {
+                    // 캡슐화 : 
+                    // + 데이터 은닉(Speed 속성 private 처리) 
+                    // + 행위를 통한 상태 변경 (SpeedUp 호출)
                     player.GetComponent<PlayerMove>().SpeedUp(Value);
                     break;
                 }
 
             case ItemType.FireRateUp:
                 {
-                    // todo: 속성을 직접 수정하는게 아니라 메서드를 통한 수정
-                    player.GetComponent<PlayerFire>().CoolDown_time -= Value;
-                    Debug.Log($"플레이어 공속: {player.GetComponent<PlayerFire>().CoolDown_time}");
+                    player.GetComponent<PlayerFire>().FireRateUp(Value);
                     break;
                 }
         }
