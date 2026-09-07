@@ -8,8 +8,17 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float _moveSpeed = 5f;
     [SerializeField] protected int _enemyDamage = 30;
 
+    private Animator _animator;
+
     // - 생성할 아이템 프리팹들
     [SerializeField] private Item[] _itemPrefabs;
+
+    // 객체가 생성될 때 한 번 실행된다.
+    private void Awake()
+    {
+        // 애니메이터 컴포넌트에 대한 참조를 가져와서 할당한다.
+        _animator = GetComponent<Animator>();
+    }
 
     protected virtual void Update()
     {
@@ -50,6 +59,12 @@ public abstract class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _health -= damage;
+
+        if (_animator != null)
+        {
+            _animator.SetTrigger("hit");
+        }
+
         if (_health <= 0)
         {
             Destroy(gameObject);
