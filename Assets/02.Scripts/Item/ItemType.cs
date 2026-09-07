@@ -1,6 +1,6 @@
 public enum ItemType
 {
     Heal,
-    MoveSeepUp,
+    MoveSpeedUp,
     FireRateUp,
 }

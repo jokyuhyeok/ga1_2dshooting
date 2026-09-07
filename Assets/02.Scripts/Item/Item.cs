@@ -20,20 +20,19 @@ public class Item : MonoBehaviour
         {
             case ItemType.Heal:
                 {
-                    player.TakeDamage((int)(Value * -1));
-                    //Debug.Log($"플레이어 체력: {player}");
+                    player.Heal((int)(Value));
                     break;
                 }
 
-            case ItemType.MoveSeepUp:
+            case ItemType.MoveSpeedUp:
                 {
-                    player.GetComponent<PlayerMove>().Speed += Value;
-                    Debug.Log($"플레이어 이속: {player.GetComponent<PlayerMove>().Speed}");
+                    player.GetComponent<PlayerMove>().SpeedUp(Value);
                     break;
                 }
 
             case ItemType.FireRateUp:
                 {
+                    // todo: 속성을 직접 수정하는게 아니라 메서드를 통한 수정
                     player.GetComponent<PlayerFire>().CoolDown_time -= Value;
                     Debug.Log($"플레이어 공속: {player.GetComponent<PlayerFire>().CoolDown_time}");
                     break;
