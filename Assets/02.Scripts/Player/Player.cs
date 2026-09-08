@@ -59,7 +59,8 @@ public class Player : MonoBehaviour
     {
         if (_playerHealEffectPrefab == null)
         {
-            Debug.Log("힐링 프리팹이 들어가있지 않습니다.");
+            Debug.LogError("힐링 프리팹이 들어가있지 않습니다.");
+            return;
         }
 
         SpawnPlayerHealEffect();

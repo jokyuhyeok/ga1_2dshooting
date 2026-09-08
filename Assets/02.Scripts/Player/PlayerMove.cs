@@ -46,7 +46,8 @@ public class PlayerMove : MonoBehaviour
 
         if (_playerMoveSpeedUpEffectPrefab == null)
         {
-            Debug.Log("MoveSpeedUpEffectPrefab이 없습니다.");
+            Debug.LogError("MoveSpeedUpEffectPrefab이 없습니다.");
+            return;
         }
 
         SpawnPlayerMoveSpeedUpEffect();

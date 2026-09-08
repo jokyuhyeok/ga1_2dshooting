@@ -89,7 +89,8 @@ public class PlayerFire : MonoBehaviour
 
         if (_playerFireRateUPItemPrefab == null)
         {
-            Debug.Log("FireRateUpItemPrefab이 없습니다.");
+            Debug.LogError("FireRateUpItemPrefab이 없습니다.");
+            return;
         }
 
         SpawnPlayerFireRateUpItem();
