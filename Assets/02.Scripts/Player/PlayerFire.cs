@@ -20,8 +20,9 @@ public class PlayerFire : MonoBehaviour
     // 쿨타임 변수
     private const float MinCoolTime = 0.06f;
     [SerializeField] private float _coolDown_time = 5.0f;
+    [SerializeField] private float _current_time = 0.0f;
     public float CoolDown_time => _coolDown_time;
-    public float Current_time = 0.0f;
+
 
     // 자동 공격 모드
     private bool _isAuto = false;
@@ -29,7 +30,19 @@ public class PlayerFire : MonoBehaviour
 
     private void Start()
     {
-        Current_time = _coolDown_time;
+        _current_time = _coolDown_time;
+
+        if (BulletPrefab == null)
+        {
+            Debug.LogError("총알 프리팹이 할당되지 않았습니다.");
+            return;
+        }
+
+        if (Sub_BulletPrefab == null)
+        {
+            Debug.LogError("서브 총알 프리팹이 할당되지 않았습니다.");
+            return;
+        }
     }
 
     private void Update()
@@ -41,15 +54,15 @@ public class PlayerFire : MonoBehaviour
         }
 
         // [정리과제 6] 총알 발사에 있어 쿨타임 적용
-        if (Current_time > 0.0f)
+        if (_current_time > 0.0f)
         {
-            Current_time -= Time.deltaTime;
+            _current_time -= Time.deltaTime;
         }
 
-        if ((_isAuto || Input.GetKeyDown(KeyCode.Space)) && Current_time <= 0.0f)
+        if ((_isAuto || Input.GetKeyDown(KeyCode.Space)) && _current_time <= 0.0f)
         {
             Fire();
-            Current_time = _coolDown_time;
+            _current_time = _coolDown_time;
         }
     }
 

@@ -47,15 +47,16 @@ public class Player : MonoBehaviour
 
     private void SpawnPlayerDeathEffect()
     {
+        if (_playerdeathEffectPrefab == null)
+        {
+            Debug.LogError("플레이어 사망 효과 프리팹이 존재하지 않습니다.");
+            return;
+        }
+
         Instantiate(_playerdeathEffectPrefab, transform.position, Quaternion.identity);
     }
 
     private void SpawnPlayerHealEffect()
-    {
-        Instantiate(_playerHealEffectPrefab, transform.position, Quaternion.identity);
-    }
-
-    public void Heal(int healAmount)
     {
         if (_playerHealEffectPrefab == null)
         {
@@ -63,6 +64,11 @@ public class Player : MonoBehaviour
             return;
         }
 
+        Instantiate(_playerHealEffectPrefab, transform.position, Quaternion.identity);
+    }
+
+    public void Heal(int healAmount)
+    {
         SpawnPlayerHealEffect();
 
         if (healAmount < 0)
