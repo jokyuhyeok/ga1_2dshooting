@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     // - 메서드를 통한 상태 변경
     [SerializeField] private int _health = 100;
 
+    [SerializeField] private GameObject _playerdeathEffectPrefab;
+
     public int Health => _health; // 람다식 문법을 활용한 읽기 전용 프로퍼티
     //{
     //    get { return _health; }
@@ -37,8 +39,14 @@ public class Player : MonoBehaviour
         _health -= damage;
         if (_health <= 0)
         {
+            SpawnPlayerDeathEffect();
             Destroy(gameObject);
         }
+    }
+
+    private void SpawnPlayerDeathEffect()
+    {
+        Instantiate(_playerdeathEffectPrefab, transform.position, Quaternion.identity);
     }
 
     public void Heal(int healAmount)

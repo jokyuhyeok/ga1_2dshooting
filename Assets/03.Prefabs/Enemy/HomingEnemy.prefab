@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33cd980e7996679499b130c9ea1c7e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Follow_Player
-  _health: 500
+  _health: 400
   _moveSpeed: 3
   _enemyDamage: 100
   _itemPrefabs:
