@@ -17,7 +17,9 @@ public class PlayerFire : MonoBehaviour
 
     // 쿨타임 변수
     private const float MinCoolTime = 0.06f;
-    public float CoolDown_time = 5.0f;
+    [SerializeField] private float _coolDown_time = 5.0f;
+    public float CoolDown_time => _coolDown_time;
+
     public float Current_time = 0.0f;
 
     // 자동 공격 모드
@@ -26,7 +28,7 @@ public class PlayerFire : MonoBehaviour
 
     private void Start()
     {
-        Current_time = CoolDown_time;
+        Current_time = _coolDown_time;
     }
 
     private void Update()
@@ -46,7 +48,7 @@ public class PlayerFire : MonoBehaviour
         if ((_isAuto || Input.GetKeyDown(KeyCode.Space)) && Current_time <= 0.0f)
         {
             Fire();
-            Current_time = CoolDown_time;
+            Current_time = _coolDown_time;
         }
     }
 
@@ -80,6 +82,6 @@ public class PlayerFire : MonoBehaviour
         }
 
         // 최고 속도 제한
-        CoolDown_time = Math.Max(CoolDown_time - upValue, MinCoolTime);
+        _coolDown_time = Math.Max(_coolDown_time - upValue, MinCoolTime);
     }
 }

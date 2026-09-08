@@ -6,7 +6,8 @@ public class PlayerMove : MonoBehaviour
     private Animator _animator;
 
     [SerializeField] private float _speed; // 플레이어 속도
-    public float Speed_ChangeAmount; // 속도 변화 정도
+
+    public float Speed => _speed;
 
     // 코드 최적화 1 - 매직넘버 없애기: 화면 경계값 변수들
     public float MaxY = 0f;
@@ -24,6 +25,11 @@ public class PlayerMove : MonoBehaviour
     {
         Move();
         SpeedChange();
+    }
+
+    public float GetSpeed()
+    {
+        return _speed;
     }
 
     public void SpeedUp(float upValue)

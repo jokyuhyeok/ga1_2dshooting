@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c9481cd5446db249b58988c37b36a47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Straight_To_Player
-  _health: 300
+  _health: 200
   _moveSpeed: 5
   _enemyDamage: 10
   _itemPrefabs:
