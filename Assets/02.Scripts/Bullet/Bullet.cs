@@ -19,7 +19,6 @@ public class Bullet : MonoBehaviour
         // 충돌한 친구가 Enemy일 때만 죽여뿌자.
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("충돌 했다!");
             // 나죽고!
             Destroy(this.gameObject);
 
