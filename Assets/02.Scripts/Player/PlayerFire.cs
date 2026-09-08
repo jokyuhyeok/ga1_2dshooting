@@ -15,11 +15,12 @@ public class PlayerFire : MonoBehaviour
     public Transform Sub_FirePoint_Left;
     public Transform Sub_FirePoint_Right;
 
+    [SerializeField] private GameObject _playerFireRateUPItemPrefab;
+
     // 쿨타임 변수
     private const float MinCoolTime = 0.06f;
     [SerializeField] private float _coolDown_time = 5.0f;
     public float CoolDown_time => _coolDown_time;
-
     public float Current_time = 0.0f;
 
     // 자동 공격 모드
@@ -73,6 +74,11 @@ public class PlayerFire : MonoBehaviour
         }
     }
 
+    private void SpawnPlayerFireRateUpItem()
+    {
+        Instantiate(_playerFireRateUPItemPrefab, transform.position, Quaternion.identity);
+    }
+
     public void FireRateUp(float upValue)
     {
         if (upValue < 0)
@@ -80,6 +86,13 @@ public class PlayerFire : MonoBehaviour
             Debug.LogWarning("공격 속도 증가량은 0보다 작을 수 없습니다.");
             return;
         }
+
+        if (_playerFireRateUPItemPrefab == null)
+        {
+            Debug.Log("FireRateUpItemPrefab이 없습니다.");
+        }
+
+        SpawnPlayerFireRateUpItem();
 
         // 최고 속도 제한
         _coolDown_time = Math.Max(_coolDown_time - upValue, MinCoolTime);

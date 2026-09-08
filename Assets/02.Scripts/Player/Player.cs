@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int _health = 100;
 
     [SerializeField] private GameObject _playerdeathEffectPrefab;
+    [SerializeField] private GameObject _playerHealEffectPrefab;
 
     public int Health => _health; // 람다식 문법을 활용한 읽기 전용 프로퍼티
     //{
@@ -49,8 +50,20 @@ public class Player : MonoBehaviour
         Instantiate(_playerdeathEffectPrefab, transform.position, Quaternion.identity);
     }
 
+    private void SpawnPlayerHealEffect()
+    {
+        Instantiate(_playerHealEffectPrefab, transform.position, Quaternion.identity);
+    }
+
     public void Heal(int healAmount)
     {
+        if (_playerHealEffectPrefab == null)
+        {
+            Debug.Log("힐링 프리팹이 들어가있지 않습니다.");
+        }
+
+        SpawnPlayerHealEffect();
+
         if (healAmount < 0)
         {
             Debug.LogWarning("힐량은 음수일 수 없습니다.");

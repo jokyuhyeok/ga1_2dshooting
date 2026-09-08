@@ -108,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   _type: 1
   _value: 1
+  GetItemPrefab: {fileID: 4772634663576830964, guid: e1385af346f4e624eb313ec1ea4fcd7e, type: 3}
 --- !u!95 &8438499077879247450
 Animator:
   serializedVersion: 7

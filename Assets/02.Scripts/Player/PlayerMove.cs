@@ -6,7 +6,7 @@ public class PlayerMove : MonoBehaviour
     private Animator _animator;
 
     [SerializeField] private float _speed; // 플레이어 속도
-
+    [SerializeField] private GameObject _playerMoveSpeedUpEffectPrefab;
     public float Speed => _speed;
 
     // 코드 최적화 1 - 매직넘버 없애기: 화면 경계값 변수들
@@ -24,12 +24,16 @@ public class PlayerMove : MonoBehaviour
     private void Update()
     {
         Move();
-        SpeedChange();
     }
 
     public float GetSpeed()
     {
         return _speed;
+    }
+
+    private void SpawnPlayerMoveSpeedUpEffect()
+    {
+        Instantiate(_playerMoveSpeedUpEffectPrefab, transform.position, Quaternion.identity);
     }
 
     public void SpeedUp(float upValue)
@@ -40,6 +44,13 @@ public class PlayerMove : MonoBehaviour
             return;
         }
 
+        if (_playerMoveSpeedUpEffectPrefab == null)
+        {
+            Debug.Log("MoveSpeedUpEffectPrefab이 없습니다.");
+        }
+
+        SpawnPlayerMoveSpeedUpEffect();
+
         _speed += upValue;
 
         // 최대 속도를 제한하는 등의 메서드를 추가할수도 있다.
@@ -47,21 +58,6 @@ public class PlayerMove : MonoBehaviour
         {
             _speed = MaxSpeed;
         }*/
-    }
-
-    private void SpeedChange()
-    {
-        // 3. 키보드 E : 스피드 UP!, 키보드 Q : 스피드 Down!
-        // 코드최적화 3 - 버튼을 눌렀을 때 최초 한프레임에만 반응하도록 GetKey => GetKeyDown
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            _speed++;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            _speed--;
-        }
     }
 
     private void Move()
