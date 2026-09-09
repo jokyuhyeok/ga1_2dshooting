@@ -3,9 +3,18 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    private AudioSource _audioSource;
+
     // 목적 : 총알을 위로 움직이고 싶다. 
     public float MoveSpeed;
     public int BulletDamage;
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.pitch = UnityEngine.Random.Range(1.0f, 3.0f);
+        _audioSource.Play();
+    }
 
     private void Update()
     {
