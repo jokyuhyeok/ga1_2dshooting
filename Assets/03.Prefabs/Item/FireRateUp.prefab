@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
   _type: 2
-  _value: 0.05
+  _value: 1
 --- !u!95 &-5325868578214113410
 Animator:
   serializedVersion: 7
