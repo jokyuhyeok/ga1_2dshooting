@@ -5,6 +5,7 @@ public class Item : MonoBehaviour
 {
     [SerializeField] private ItemType _type;
     [SerializeField] private float _value;
+    [SerializeField] private AudioClip _getItem;
 
     private const float WaitTime = 2.0f;
     private float _waitTimer = 0f;
@@ -88,6 +89,12 @@ public class Item : MonoBehaviour
                     Debug.Log($"플레이어 공격속도: {playerFire.CoolDown_time}");
                     break;
                 }
+        }
+
+        AudioSource playerAudio = player.GetComponent<AudioSource>();
+        if (playerAudio != null && _getItem != null)
+        {
+            playerAudio.PlayOneShot(_getItem);
         }
 
         Destroy(gameObject);

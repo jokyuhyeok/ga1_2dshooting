@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _playerdeathEffectPrefab;
     [SerializeField] private GameObject _playerHealEffectPrefab;
 
+    [SerializeField] private AudioClip _takeDamageSound;
+    private AudioSource _audioSource;
     public int Health => _health; // 람다식 문법을 활용한 읽기 전용 프로퍼티
 
     //{
@@ -26,6 +28,12 @@ public class Player : MonoBehaviour
     //{
     // return _health;
     //}
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
+
     public void TakeDamage(int damage)
     {
         if (damage < 0)
@@ -40,6 +48,13 @@ public class Player : MonoBehaviour
         {
             SpawnPlayerDeathEffect();
             Destroy(gameObject);
+        }
+        else
+        {
+            if (_audioSource != null && _takeDamageSound != null)
+            {
+                _audioSource.PlayOneShot(_takeDamageSound);
+            }
         }
     }
 

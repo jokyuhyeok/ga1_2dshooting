@@ -9,6 +9,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected int _enemyDamage = 30;
 
     private Animator _animator;
+    private AudioSource _damagedAudioSource;
 
     // - 생성할 아이템 프리팹들
     [SerializeField] private Item[] _itemPrefabs;
@@ -21,6 +22,7 @@ public abstract class Enemy : MonoBehaviour
     {
         // 애니메이터 컴포넌트에 대한 참조를 가져와서 할당한다.
         _animator = GetComponent<Animator>();
+        _damagedAudioSource = GetComponent<AudioSource>();
     }
 
     protected virtual void Update()
@@ -74,11 +76,21 @@ public abstract class Enemy : MonoBehaviour
             _animator.SetTrigger("hit");
         }
 
+        // 총알을 연속으로 맞아도 소리가 끊기지 않고 자연스럽게 겹쳐서 나게 합니다.
+        if (_damagedAudioSource != null && _damagedAudioSource.clip != null)
+        {
+            _damagedAudioSource.PlayOneShot(_damagedAudioSource.clip);
+        }
+
         if (_health <= 0)
         {
             SpawnDeathEffect();
             SpawnItem();
+
             Destroy(gameObject);
+        }
+        else
+        {
         }
     }
 }
