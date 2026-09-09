@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Item
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -40,8 +41,26 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1113199277
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 3380557087
+    locked: 0
+  - name: Bullet
+    uniqueID: 3743858929
+    locked: 0
+  - name: Enemy
+    uniqueID: 1833793897
+    locked: 0
+  - name: Fx
+    uniqueID: 901960277
+    locked: 0
+  - name: UI
+    uniqueID: 3660844005
     locked: 0
   m_RenderingLayers:
   - Default
