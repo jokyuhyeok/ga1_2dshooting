@@ -79,7 +79,7 @@ public abstract class Enemy : MonoBehaviour
         // 총알을 연속으로 맞아도 소리가 끊기지 않고 자연스럽게 겹쳐서 나게 합니다.
         if (_damagedAudioSource != null && _damagedAudioSource.clip != null)
         {
-            _damagedAudioSource.PlayOneShot(_damagedAudioSource.clip);
+            AudioSource.PlayClipAtPoint(_damagedAudioSource.clip, transform.position);
         }
 
         if (_health <= 0)
