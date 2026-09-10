@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
   _type: 2
-  _value: 1
+  _value: 0.05
   _getItem: {fileID: 8300000, guid: bddc41d27589e644f8628106993d8415, type: 3}
 --- !u!95 &-5325868578214113410
 Animator:
