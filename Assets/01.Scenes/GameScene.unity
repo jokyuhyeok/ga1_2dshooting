@@ -6491,6 +6491,7 @@ GameObject:
   - component: {fileID: 1670435482}
   - component: {fileID: 1670435485}
   - component: {fileID: 1670435487}
+  - component: {fileID: 1670435488}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6505,7 +6506,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670435477}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecfcba267f57ac94aaecdb56897206b4, type: 3}
   m_Name: 
@@ -6842,6 +6843,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1670435488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670435477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd50376f191e92c44a072595aa739f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAutoMove
+  _speed: 10
 --- !u!1 &1725045308
 GameObject:
   m_ObjectHideFlags: 0
