@@ -76,18 +76,18 @@ public class PlayerFire : MonoBehaviour
             // Todo: 직접 생성이 아니라 총알 창고야 총알내놔!
 
 
-            Bullet bullet1 = BulletPool.Instance.GetBullet();
-            bullet1.transform.position = FirePoint_Left.position; // 생성한 총알의 위치를 총구의 위치로
+            Bullet leftBullet = BulletPool.Instance.GetBullet(BulletType.Main);
+            leftBullet.transform.position = FirePoint_Left.position; // 생성한 총알의 위치를 총구의 위치로
 
-            Bullet bullet2 = BulletPool.Instance.GetBullet();
-            bullet2.transform.position = FirePoint_Right.position;
+            Bullet rightBullet = BulletPool.Instance.GetBullet(BulletType.Main);
+            rightBullet.transform.position = FirePoint_Right.position;
 
             // [정리과제 8] 보조 총알 양쪽 발사하기
-            GameObject sub_bullet1 = Instantiate(Sub_BulletPrefab);
-            sub_bullet1.transform.position = Sub_FirePoint_Left.position;
+            Bullet subleftBullet = BulletPool.Instance.GetBullet(BulletType.Sub);
+            subleftBullet.transform.position = Sub_FirePoint_Left.position;
 
-            GameObject sub_bullet2 = Instantiate(Sub_BulletPrefab);
-            sub_bullet2.transform.position = Sub_FirePoint_Right.position;
+            Bullet subrightBullet = BulletPool.Instance.GetBullet(BulletType.Sub);
+            subrightBullet.transform.position = Sub_FirePoint_Right.position;
         }
     }
 
