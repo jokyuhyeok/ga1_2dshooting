@@ -138,10 +138,7 @@ MonoBehaviour:
   _health: 500
   _moveSpeed: 5
   _enemyDamage: 30
-  _itemPrefabs:
-  - {fileID: 4928197168863796118, guid: d8af477d2068dcf479b6fc446fb0c269, type: 3}
-  - {fileID: 8001292539636800898, guid: 05ce764f91a922c469fe0d34fc04bdce, type: 3}
-  - {fileID: 3816078516784502728, guid: cda02f69a7f1bc34b85040faa76a2a88, type: 3}
+  _itemDataTable: {fileID: 11400000, guid: 67862428b5cff734db33c7e2cc85fc60, type: 2}
   _deathEffectPrefab: {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
 --- !u!60 &1678746204613286579
 PolygonCollider2D:

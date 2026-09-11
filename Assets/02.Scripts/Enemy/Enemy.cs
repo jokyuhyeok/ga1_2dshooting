@@ -7,12 +7,12 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private int _health = 100;
     [SerializeField] protected float _moveSpeed = 5f;
     [SerializeField] protected int _enemyDamage = 30;
+    [SerializeField] private float _dropChance = 30f;
 
     private Animator _animator;
     private AudioSource _damagedAudioSource;
 
-    // - 생성할 아이템 프리팹들
-    [SerializeField] private Item[] _itemPrefabs;
+    [SerializeField] private ItemSpawnDataTableSO _itemDataTable;
 
     // - 죽을 때 생성할 이펙트 프리팹
     [SerializeField] private GameObject _deathEffectPrefab;
@@ -54,12 +54,35 @@ public abstract class Enemy : MonoBehaviour
 
     private void SpawnItem()
     {
-        if (Random.Range(0, 100) > 30) return;
-
         // Todo: Scriptable Object를 사용해서 리팩토링
         // 이유 1: 배열을 사용했지만 각 아이템이 어떤 프리팹인지 알수가 없음
         // 이유 2: 각 아이템 스폰 확률을 매직 넘버로 하드코딩해서 유지보수가 어렵
-        Instantiate(_itemPrefabs[Random.Range(0, _itemPrefabs.Length)], transform.position, transform.rotation);
+
+        if (Random.Range(0, 100) >= _dropChance) return;
+
+        // item 가중치 랜덤 선택 적용
+        // 1. 추정할 수 있는 모든 가중치를 더한다.
+        int totalWeight = 0;
+        foreach (ItemSpawnData data in _itemDataTable.Datas)
+        {
+            totalWeight += data.Weight;
+        }
+
+        // 2. 전체 가중치 범위에서 랜덤한 정수를 뽑는다.
+        int randomWeight = Random.Range(0, totalWeight);
+
+        // 3. 가중치를 누적하면서 선택된 구간을 찾는다.
+        int cumulativeWeight = 0;
+        foreach (ItemSpawnData data in _itemDataTable.Datas)
+        {
+            cumulativeWeight += data.Weight;
+            if (randomWeight < cumulativeWeight)
+            {
+                GameObject item = Instantiate(data.ItemPrefab);
+                item.transform.position = transform.position;
+                break;
+            }
+        }
     }
 
     private void SpawnDeathEffect()
