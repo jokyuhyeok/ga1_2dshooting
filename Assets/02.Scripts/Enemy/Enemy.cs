@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    // privvate로 원천 차단을 하자. 
+    // private로 원천 차단을 하자. 
     // 유니티가 수정할 수 있는 필드 - SerializeField
     [SerializeField] private int _health = 100;
     [SerializeField] protected float _moveSpeed = 5f;

@@ -8,8 +8,8 @@ public class EnemySpawner : MonoBehaviour
     [Header("스폰 간격")][SerializeField] private float _spawnInterval = 3f;
     private float _timer;
 
-    // - 생성할 프리팹들
-    [Header("스폰할 적 프리팹")][SerializeField] private Enemy[] _enemyPrefabs;
+    [SerializeField] private EnemySpawnData[] _spawnDatas;
+
 
     private void Update()
     {
@@ -27,26 +27,33 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn()
     {
-        int enemyPrefabIndex = 0;
-        int randomPercent = UnityEngine.Random.Range(0, 100);
-
         // Todo: Scriptable Object를 사용해서 리팩토링
         // 이유1: 배열을 사용했지만 각 아이템이 어떤 프리팹인지 알 수가 없음.
         // 이유2: 각 에너미 스폰 확률을 매직 넘버로 하드코딩해서 유지보수가 어렵 
-        if (randomPercent < 50)
+
+        // 가중치 랜덤 선택
+        // 각 아이템에 가중치를 부여하고, 가중치가 클수록 높은 확률로 선택되도록 하는 방식
+        // 1. 추정할 수 있는 모든 가중치를 더한다.
+        int totalWeight = 0;
+        foreach (EnemySpawnData data in _spawnDatas)
         {
-            enemyPrefabIndex = 0;
-        }
-        else if (randomPercent < 80)
-        {
-            enemyPrefabIndex = 1;
-        }
-        else
-        {
-            enemyPrefabIndex = 2;
+            totalWeight += data.Weight;
         }
 
-        Enemy enemy = Instantiate(_enemyPrefabs[enemyPrefabIndex]);
-        enemy.transform.position = transform.position;
+        // 2. 전체 가중치 범위에서 랜던한 정수를 뽑는다.
+        int randomWeight = Random.Range(0, totalWeight);
+
+        // 3. 가중치를 누적하면서 선택된 구간을 찾는다.
+        int cumulativeWeight = 0;
+        foreach (EnemySpawnData data in _spawnDatas)
+        {
+            cumulativeWeight += data.Weight; // 누적
+            if (randomWeight < cumulativeWeight) // 구간
+            {
+                GameObject enemy = Instantiate(data.EnemyPrefab);
+                enemy.transform.position = transform.position;
+                break;
+            }
+        }
     }
 }
