@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("스폰 간격")][SerializeField] private float _spawnInterval = 3f;
     private float _timer;
 
-    [SerializeField] private EnemySpawnData[] _spawnDatas;
+    [SerializeField] private EnemySpawnDataTableSO _spawnDataTable;
 
 
     private void Update()
@@ -35,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
         // 각 아이템에 가중치를 부여하고, 가중치가 클수록 높은 확률로 선택되도록 하는 방식
         // 1. 추정할 수 있는 모든 가중치를 더한다.
         int totalWeight = 0;
-        foreach (EnemySpawnData data in _spawnDatas)
+        foreach (EnemySpawnData data in _spawnDataTable.Datas)
         {
             totalWeight += data.Weight;
         }
@@ -45,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
 
         // 3. 가중치를 누적하면서 선택된 구간을 찾는다.
         int cumulativeWeight = 0;
-        foreach (EnemySpawnData data in _spawnDatas)
+        foreach (EnemySpawnData data in _spawnDataTable.Datas)
         {
             cumulativeWeight += data.Weight; // 누적
             if (randomWeight < cumulativeWeight) // 구간
