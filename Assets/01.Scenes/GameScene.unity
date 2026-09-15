@@ -7032,7 +7032,7 @@ GameObject:
   - component: {fileID: 1572995612}
   - component: {fileID: 1572995611}
   - component: {fileID: 1572995610}
-  - component: {fileID: 1572995609}
+  - component: {fileID: 1572995613}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -7060,22 +7060,6 @@ RectTransform:
   m_AnchoredPosition: {x: 449.08414, y: -578.2069}
   m_SizeDelta: {x: 179.832, y: 165.586}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1572995609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572995607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56571356d33665b4d8bbc4977d8a54b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: SimpleInput.Runtime::SimpleInputNamespace.ButtonInputKeyboard
-  key: 98
-  button:
-    m_key: B
-    value: 0
 --- !u!114 &1572995610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7158,6 +7142,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572995607}
   m_CullTransparentMesh: 1
+--- !u!114 &1572995613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572995607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995f34434fbe45d46aacf4e120446279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SimpleInput.Runtime::SimpleInputNamespace.ButtonInputUI
+  button:
+    m_key: Bomb
+    value: 0
 --- !u!1 &1670435477
 GameObject:
   m_ObjectHideFlags: 0
